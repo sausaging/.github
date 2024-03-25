@@ -6,7 +6,7 @@
 ## What is a Quark?
 
 <p align="center">
- <img  alt="quarks" src="../assets/Quarks_wikipedia.jpeg">
+ <img  alt="quarks" src="assets/Quarks_wikipedia.jpeg">
 </p>
 
 ## What is Quark Layer?
@@ -31,7 +31,7 @@ and ...
 ## How does Quark Layer work?
 
 <p align="center">
-    <img alt="sausage" src="../assets/sausage.jpg">   
-    <img alt="sausage proving systems and vms" src="../assets/sausage_pv.jpg">
-    <img alt="sausage lang org" src="../assets/sausage_ls.jpg">
+    <img alt="sausage" src="assets/sausage.jpg">   
+    <img alt="sausage proving systems and vms" src="assets/sausage_pv.jpg">
+    <img alt="sausage lang org" src="assets/sausage_ls.jpg">
 </p>
