@@ -33,13 +33,13 @@ and ...
 ##### A simple overview of Quark Layer.
 
 <p align="center">
-    <img alt="Quark Layer" src="assets/Quark-layer-w.png">   
+    <img alt="Quark Layer" src="./assets/Quark-layer-w.png">   
 </p>
 
 ##### Proving systems and verification systems to be supported by Quark Layer(non-exhasutive)
 
 <p align="center">
-    <img alt="Proving systems and vms" src="assets/sausage-server.png">
+    <img alt="Proving systems and vms" src="./assets/sausage-server.png">
 </p>
 
 ## Quick Start(Devnet)
