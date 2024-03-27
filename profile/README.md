@@ -12,7 +12,6 @@ Here is what wikipedia has to answer:
  <img  alt="quarks" src="assets/quarks_wikipedia.jpeg">
 </p>
 
-
 ## Why do we need a proof verification and aggregation layer, now?
  
 With EIP-4844 in action, data publishing costs for rollups will decrease significantly. Ethereum has a limited gas per block and ethereum is not optimised for all (zero knowledge) verifying systems. Hence proof verification on ethereum is costly. With increasing adoption of Zero-knowledge in web3, the next significant cost would be proof verification cost on the Ethereum.
@@ -67,7 +66,7 @@ Verifiers to be supported by Quark Layer(non-exhasutive)
    <img alt="verifiers" src="./assets/sausage-server.png">
 </p>
 
-## Quick Start(Devnet)
+## MVP Quick Start
 
 #### Must have:
 
@@ -129,32 +128,50 @@ PORT=8085 cargo run
 
 ```
 
-#### Verifing Proofs:
+#### Verifing SP1 Proofs:
 
-i) Register: Register proof related metadata.
+i) Register proof related metadata.
 
 ```shell
 # Run in Terminal 2 of Hyper-pvzk
 
 ./build/morpheus-cli testing register
 ```
+- txID obtained is going to be the image id for this proof instance.
 
-ii) Register image: Register proof(s)/elf(s) with their keccak hashes.
+ii) Register elf/proof with their hashes to their image id.
+
+- Image ID is the txID obtained in (i).
+- Proof val type is 1 for ELF.
+- Root hash is the root hash of elf.(feature not yet implemented, so any string works).
+
 ```shell
 ./build/morpheus-cli testing register-image
 ```
 
-iii) Broadcast: Broadcast proof(s)/elf(s) over p2p network.
+- Do the same for proof with same image id, but proof val type above 1.
+
+iii) Broadcast elf/proof over p2p network.
+
+- File name is path of the elf file. Here it will be `../example-proofs/sp1/riscv32im-succinct-zkvm-elf`
+- Chunk index can be anything.(feature not yet implemented)
+
 ```shell
 ./build/morpheus-cli testing broadcast
 ```
 
-iv) Verify: Verify correctness of proofs.
+- Do the same for proof, but with file path as `../example-proofs/sp1/proof-with-io.json`
+
+iv) Verify correctness of proofs.
+
+- Verification type is 1 for SP1.
+- Time out blocks are the number of blocks in which a validator need to cast their vote.(feature may change)
+
 ```shell
 ./build/morpheus-cli testing verify
 ```
 
-v) Verify status: Query if proof is valid or invalid.
+v) Query if proof is valid or invalid.
 ```shell
 ./build/morpheus-cli testing verify-status
 ```
