@@ -1,3 +1,5 @@
+Still a draft.
+
 # Quark Layer
 
 - Don't trust blindly, verify cheaply. 
@@ -5,13 +7,35 @@
 
 ## What is a Quark?
 
+Here is what wikipedia has to answer:
 <p align="center">
- <img  alt="quarks" src="assets/Quarks_wikipedia.jpeg">
+ <img  alt="quarks" src="assets/quarks_wikipedia.jpeg">
 </p>
+
+
+## Why do we need a proof verification and aggregation layer, now?
+ 
+With EIP-4844 in action, data publishing costs for rollups will decrease significantly. Ethereum has a limited gas per block and ethereum is not optimised for all (zero knowledge) verifying systems. Hence proof verification on ethereum is costly. With increasing adoption of Zero-knowledge in web3, the next significant cost would be proof verification cost on the Ethereum.
+
+Aggregated proofs allow to verify multiple proofs as a single proof, instead of verifying them individually. With proof aggregation, multiple proofs can be verified as a single proof on Ethereum, reducing gas costs for proof verification.
+
+Proof generation would require a lot of time and have high hardware requirements. But proof verification will take a few milli seconds. 
 
 ## What is Quark Layer?
 
-Quark layer is a zero knowledge proof verification & aggregation layer, built using [hypersdk](https://github.com/ava-labs/hypersdk).
+Quark layer is a fast decentralised Zero Knowledge proof(ZKP) verification & aggregation layer, leveraging [hypersdk](https://github.com/ava-labs/hypersdk), using snowman++ for consensus.
+
+Zero Knowledge proofs are going to stay forever and influence human progress, just like cryptography securing the current internet. ZKPs are going to secure the internet in the next decade or lesser. 
+
+Quark layer is going to support verification of any ZKPs, whether they are releated to web3 or completely general purpose. All the proofs verifyied by Quark layer are posted onto ethereum as an aggregated proof periodically.
+
+## What usecases are unlocked with Quark Layer?
+
+- Cheap and fast verification for Zero knowledge rollups/L2s and Zero knowledge bridges.
+
+- Generic proof verification system to build any zkDapp.
+
+- Interoperability for Zero knowledge rollups.
 
 ## What verification systems are supported now?
 
@@ -20,7 +44,8 @@ Quark layer is a zero knowledge proof verification & aggregation layer, built us
 - [0xpolygonmiden](https://github.com/0xpolygonmiden)
 - [Gnark](https://github.com/Consensys/gnark) (under development)
 
-We will be adding support for 
+Support for verifiers to be added:
+
 - [ ] [Halo2](https://github.com/zcash/halo2)
 - [ ] [Plonky2](https://github.com/0xPolygonZero/plonky2)
 - [ ] [Plonky3](https://github.com/Plonky3/Plonky3) 
@@ -30,16 +55,16 @@ and ...
 
 ## How does Quark Layer work?
 
-##### A simple overview of Quark Layer.
 
 <p align="center">
-    <img alt="Quark Layer" src="./assets/Quark-layer-w.png">   
+A simple overview of Quark Layer.
+    <img alt="Quark Layer" src="./assets/quark-layer-w.jpg">   
 </p>
 
-##### Proving systems and verification systems to be supported by Quark Layer(non-exhasutive)
 
 <p align="center">
-    <img alt="Proving systems and vms" src="./assets/sausage-server.png">
+Verifiers to be supported by Quark Layer(non-exhasutive)
+   <img alt="verifiers" src="./assets/sausage-server.png">
 </p>
 
 ## Quick Start(Devnet)
@@ -50,17 +75,19 @@ and ...
 
 #### Recomended tooling:
 
-- It is better to have SP1, RiscZero ZKVM installed in your machine. 
+- It is good to have SP1, RiscZero ZKVM installed in your machine. 
 
 #### Installation:
 
-- Clone all three repos in the same directory:
+- Clone all four repos in the same directory:
 
 ```shell
 git clone https://github.com/sausaging/hypersdk.git
 git clone https://github.com/sausaging/hyper-pvzk.git
-git clone https://github.com/sausaging/jugalbandi
+git clone https://github.com/sausaging/jugalbandi.git
+git clone https://github.com/sausaging/example-proofs.git
 ```
+
 #### Starting Devnet:
 
 - Start rust server(jugalbandi) in 6 different terminals:
@@ -103,3 +130,31 @@ PORT=8085 cargo run
 ```
 
 #### Verifing Proofs:
+
+i) Register: Register proof related metadata.
+
+```shell
+# Run in Terminal 2 of Hyper-pvzk
+
+./build/morpheus-cli testing register
+```
+
+ii) Register image: Register proof(s)/elf(s) with their keccak hashes.
+```shell
+./build/morpheus-cli testing register-image
+```
+
+iii) Broadcast: Broadcast proof(s)/elf(s) over p2p network.
+```shell
+./build/morpheus-cli testing broadcast
+```
+
+iv) Verify: Verify correctness of proofs.
+```shell
+./build/morpheus-cli testing verify
+```
+
+v) Verify status: Query if proof is valid or invalid.
+```shell
+./build/morpheus-cli testing verify-status
+```
