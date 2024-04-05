@@ -81,10 +81,9 @@ and ...
 
 #### Installation:
 
-- Clone all four repos in the same directory:
+- Clone all three repos in the same directory:
 
 ```shell
-git clone https://github.com/sausaging/hypersdk.git
 git clone https://github.com/sausaging/hyper-pvzk.git
 git clone https://github.com/sausaging/jugalbandi.git
 git clone https://github.com/sausaging/example-proofs.git
@@ -191,9 +190,11 @@ v) Query if a proof is valid or invalid.
 ## TODO
 
 - Add support for the planned verification system.
+- Complete all the necessary checks in the vm and modify cli.
 - Optimize on Miden Verifier integrations.
 - Research on p2p data transfer methods. Broadcast list is cool, but what if some node is offline? Do we need to store proofs with all validators before verification or store them at a % of validators?
 - Research on reward mechanisms for proper data transmission in p2p and for spamming p2p.
 - Build example projects to demonstrate things using the proof verification layer.
 - Test with various block times, block sizes, and timeouts.
 - Improve DevX for better integrations.
+- Noir??
