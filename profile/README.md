@@ -4,7 +4,7 @@ Still a draft.
 
 - Don't trust blindly, verify cheaply. 
 - As fundamental as a Quark.
-
+- Internet's Verification Layer.
 ## What is a Quark?
 
 Here is what wikipedia has to answer:
@@ -36,6 +36,12 @@ The quark layer will support verification of any ZKPs related to web3 or complet
 
 - Interoperability for Zero-knowledge rollups.
 
+- Zero Knowledge games.
+
+- Zero knowledge Machine learning.
+
+- Atomic ZK transactions.
+
 ## What verification systems are supported now?
 
 - [Succinctlabs sp1](https://github.com/succinctlabs/sp1)
@@ -50,6 +56,10 @@ Support for verifiers to be added:
 - [ ] [Plonky3](https://github.com/Plonky3/Plonky3) 
 - [ ] [ZkLLVM](https://github.com/NilFoundation/zkLLVM)
 - [ ] [KZG]() 
+- [ ] [Arkworks]()
+- [ ] [Nova]()
+- [ ] [Spartan]()
+- [ ] [Winterfell]()
 and ...
 
 ## How does Quark Layer work?
@@ -198,3 +208,14 @@ v) Query if a proof is valid or invalid.
 - Test with various block times, block sizes, and timeouts.
 - Improve DevX for better integrations.
 - Noir??
+
+
+## Notes:
+
+We give faster finality (soft), with our decentralised validator set. and produce aggregated proofs for final finality over l1(this could be optional depending on the use case)
+
+https://blog.altlayer.io/introducing-restaked-rollups-ac6a1e89b646
+
+## How To:
+
+### How to implement a usecase?
