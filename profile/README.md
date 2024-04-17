@@ -1,5 +1,5 @@
 Still a draft.
-
+We are releasing our architecture soon.
 # Quark Layer
 
 - Don't trust blindly, verify cheaply. 
@@ -47,6 +47,7 @@ The quark layer will support verification of any ZKPs related to web3 or complet
 - [Succinctlabs sp1](https://github.com/succinctlabs/sp1)
 - [Risczero's zkvm](https://github.com/risc0/risc0)
 - [0xpolygonmiden](https://github.com/0xpolygonmiden)
+- [Jolt](https://github.com/a16z/jolt)
 - [Gnark](https://github.com/Consensys/gnark) (under development)
 
 Support for verifiers to be added:
@@ -214,7 +215,6 @@ v) Query if a proof is valid or invalid.
 
 We give faster finality (soft), with our decentralised validator set. and produce aggregated proofs for final finality over l1(this could be optional depending on the use case)
 
-https://blog.altlayer.io/introducing-restaked-rollups-ac6a1e89b646
 
 ## How To:
 
